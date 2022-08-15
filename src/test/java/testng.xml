@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="5" parallel="tests" name="suite">
+    <test name="Login attempt with correct credentials">
+        <parameter name="correctUsername" value="advanced.prototype@gmx.com"/>
+        <parameter name="correctPassword" value="_8pZgRS2wA"/>
+        <classes>
+            <class name="GMXServiceTest">
+                <methods>
+                    <include name="testLogInWithCorrectCredentials"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Login attempt with wrong password">
+        <parameter name="username" value="advanced.prototype@gmx.com"/>
+        <parameter name="password" value="123"/>
+        <classes>
+            <class name="GMXServiceTest">
+                <methods>
+                    <include name="testLogInWithWrongCredentials"/>
+                </methods>
+            </class>        </classes>
+    </test>
+    <test name="Login attempt with wrong username">
+        <parameter name="username" value="a@b.com"/>
+        <parameter name="password" value="_8pZgRS2wA"/>
+        <classes>
+            <class name="GMXServiceTest">
+                <methods>
+                    <include name="testLogInWithWrongCredentials"/>
+                </methods>
+            </class>        </classes>
+    </test>
+    <test name="Login attempt with blanc username">
+        <parameter name="username" value=""/>
+        <parameter name="password" value="_8pZgRS2wA"/>
+        <classes>
+            <class name="GMXServiceTest">
+                <methods>
+                    <include name="testLogInWithWrongCredentials"/>
+                </methods>
+            </class>        </classes>
+    </test>
+    <test name="Login attempt with blanc password">
+        <parameter name="username" value="advanced.prototype@gmx.com"/>
+        <parameter name="password" value=""/>
+        <classes>
+            <class name="GMXServiceTest">
+                <methods>
+                    <include name="testLogInWithWrongCredentials"/>
+                </methods>
+            </class>        </classes>
+    </test>
+</suite>
